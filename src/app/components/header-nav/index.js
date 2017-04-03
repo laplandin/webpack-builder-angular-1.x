@@ -1,7 +1,7 @@
 import angular from 'angular';
 
-import HeaderNavComponent from './header-nav.component.js';
+import HeaderNavDirective from './header-nav.directive.js';
 
 export default angular.module('headerNav', [])
-  .directive('headerNav', () => new HeaderNavComponent);
+  .directive('headerNav', () => new HeaderNavDirective);
   // .service('HeaderNavService', HeaderNavService);
