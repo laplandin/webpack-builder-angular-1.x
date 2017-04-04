@@ -12,7 +12,9 @@ export default function routes($stateProvider) {
   let footerState = {
     name: 'footer',
     url: '/footer',
-    component: 'pageFooter'
+    // template: '<page-footer></page-footer>'\
+    templateUrl: '/media/laplandin/Work/GIT/webpack/src/app/components/page-footer/page-footer.template.html'
+    // component: 'pageFooter'
   }
 
   $stateProvider.state(headerState);

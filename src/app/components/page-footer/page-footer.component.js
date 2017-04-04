@@ -1,11 +1,8 @@
-import template from './page-footer.template.html';
+import pageFooterTemplate from './page-footer.template.html';
 
 export default class pageFooter {
   constructor() {
-    // this.scope = {};
-    // this.restrict = 'E';
-    this.template = template;
-    // this.controllerAs = 'vm';
+    this.templateUrl = pageFooterTemplate;
     this.controller = PageFooterController;
   }
 }

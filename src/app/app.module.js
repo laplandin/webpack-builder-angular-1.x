@@ -8,6 +8,7 @@ import pageFooter from './components/page-footer/index.js';
 
 import routes from './router.config.js';
 
+console.log('init myApp');
 angular.module("myApp", [
   uirouter,
   'headerNav',

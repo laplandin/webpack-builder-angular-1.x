@@ -17,7 +17,7 @@ module.exports = {
   context: PATHS.src,
     // entry: path.resolve(__dirname),
   entry: {
-    // vendor: ['angular'],
+    vendor: ['angular'],
     index: "./index.js"
   },
   output: {
@@ -37,6 +37,13 @@ module.exports = {
     rules: [
       { //html
       test: /\.html$/,
+      // use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader']
+      exclude: [
+          path.resolve(__dirname, 'src/index.html')
+        ],
+      use: ['ngtemplate-loader', 'html-loader']
+    }, {
+      test: /index\.html$/,
       // use: ['file-loader?name=[name].[ext]', 'extract-loader', 'html-loader']
       use: ['html-loader']
     }, {
@@ -67,6 +74,10 @@ module.exports = {
       // chunks: ['index', 'vendor'] //Определение конкретных файлов из которых можно выносить общую часть
       //посмотреть распределение модулей по файлам можно командой webpack --display-modules -v
   //  }),
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor',
+      chunks: 'vendor'
+    }),
     new ExtractTextPlugin({ //Извлечение текста из не JS файлов
       filename: 'styles/index.css',
       publicPath: './dist/styles/'
